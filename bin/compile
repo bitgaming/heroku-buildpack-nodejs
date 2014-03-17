@@ -5,6 +5,7 @@ set -o pipefail   # don't ignore exit codes when piping output
 # set -x          # enable debugging
 
 # Configure directories
+BIN_DIR=$(cd $(dirname $0); pwd) # absolute path
 build_dir=$1
 cache_dir=$2
 env_dir=$3
@@ -13,6 +14,9 @@ bp_dir=$(cd $(dirname $0); cd ..; pwd)
 
 # Load some convenience functions like status(), echo(), and indent()
 source $bp_dir/bin/common.sh
+
+# libzmq support.
+source $BIN_DIR/steps/libzmq
 
 # Output npm debug info on error
 trap cat_npm_debug_log ERR
