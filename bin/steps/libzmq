@@ -13,15 +13,14 @@ then
     echo "-----> Zmq, created directories"
     if [ ! -e "include/zmq.h" ]; then
       echo "-----> Downloading zmq package"
-      curl -O http://download.zeromq.org/zeromq-$VERSION.tar.gz -s -o -
+      curl -O http://download.zeromq.org/zeromq-4.0.4.tar.gz -s -o -
       tar zxf zeromq-4.0.4.tar.gz
 
       echo "-----> Installing zmq"
-      cd zeromq-$VERSION
+      cd zeromq-4.0.4
       ./configure --prefix=$output_dir
       make
       make install
     fi
-    
     popd > /dev/null
 fi
