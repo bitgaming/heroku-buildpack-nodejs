@@ -13,14 +13,15 @@ then
     echo "-----> Zmq, created directories"
     if [ ! -e "include/zmq.h" ]; then
       echo "-----> Downloading zmq package"
-      curl -s -L -o tmp-libzmq.tar.gz "https://api.anvilworks.org/slugs/5c5861db-ed71-4543-8c28-c8425afc5974.tgz"
-      tar -zxvf tmp-libzmq.tar.gz > /dev/null
-      rm tmp-libzmq.tar.gz
+      curl -O http://download.zeromq.org/zeromq-$VERSION.tar.gz -s -o -
+      tar zxf zeromq-4.0.4.tar.gz
 
-      echo "-----> Zmq downloaded"
-      sed -i "s|/app/vendor/.*|`pwd`|" lib/pkgconfig/*.pc
+      echo "-----> Installing zmq"
+      cd zeromq-$VERSION
+      ./configure --prefix=$output_dir
+      make
+      make install
     fi
-
-    export PKG_CONFIG_PATH=$(pwd)/lib/pkgconfig:$PKG_CONFIG_PATH
+    
     popd > /dev/null
 fi
