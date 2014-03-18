@@ -13,7 +13,7 @@ then
     echo "-----> Zmq, created directories"
     if [ ! -e "include/zmq.h" ]; then
       echo "-----> Downloading zmq package"
-      curl -s -L -o tmp-libzmq.tar.gz "http://halorgium-build.herokuapp.com/output/81f60ad7-4a4f-484d-85d5-a6ccc0b8db7b"
+      curl -s -L -o tmp-libzmq.tar.gz "https://api.anvilworks.org/slugs/5c5861db-ed71-4543-8c28-c8425afc5974.tgz"
       tar -zxvf tmp-libzmq.tar.gz > /dev/null
       rm tmp-libzmq.tar.gz
 
