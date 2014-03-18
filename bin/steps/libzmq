@@ -3,12 +3,12 @@
 echo "-----> Entered steps file."
 
 # if zmq within requirements, use vendored libzmq
-if (grep -Fiq "zmq" $BUILD_DIR/package.json)
+if (grep -Fiq "zmq" $1/package.json)
 then
     echo "-----> Noticed zmq. Bootstrapping libzmq."
     
-    mkdir -p $BUILD_DIR/.heroku/vendor
-    pushd $BUILD_DIR/.heroku/vendor > /dev/null
+    mkdir -p $1/.heroku/vendor
+    pushd $1/.heroku/vendor > /dev/null
 
     if [ ! -e "include/zmq.h" ]; then
       curl -s -L -o tmp-libzmq.tar.gz "http://halorgium-build.herokuapp.com/output/81f60ad7-4a4f-484d-85d5-a6ccc0b8db7b"
