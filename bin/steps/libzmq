@@ -9,11 +9,7 @@ then
     pushd $BUILD_DIR/.heroku/vendor > /dev/null
 
     if [ ! -e "include/zmq.h" ]; then
-      curl -s -L -o tmp-uuid.tar.gz "http://vulcan-lpetre.herokuapp.com/output/e6b47a30-4832-4fe6-944e-9770af028d51"
-      tar -zxvf tmp-uuid.tar.gz > /dev/null
-      rm tmp-uuid.tar.gz
-
-      curl -s -L -o tmp-libzmq.tar.gz "http://vulcan-lpetre.herokuapp.com/output/03e1a880-0ddc-4478-9d4f-ed9b248ae65c"
+      curl -s -L -o tmp-libzmq.tar.gz "https://api.anvilworks.org/slugs/a515766e-4012-4c23-8755-365b53175f85.tgz"
       tar -zxvf tmp-libzmq.tar.gz > /dev/null
       rm tmp-libzmq.tar.gz
 
