@@ -17,7 +17,7 @@ source $bp_dir/bin/common.sh
 
 # libzmq support.
 
-echo "-----> Entering steps file."
+echo "-----> Exporting load paths."
 export LDFLAGS=-L$BUILD_DIR/vendor/libzmq/lib
 export CPPFLAGS=-I$BUILD_DIR/vendor/libzmq/include
 
